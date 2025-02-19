@@ -10,7 +10,7 @@ print(pessoa['nome'])
 
 #Insert
 pessoa['sexo'] = 'M'
-
+print(pessoa)
 #Update
 pessoa['nome'] = 'Vegeta'
 
