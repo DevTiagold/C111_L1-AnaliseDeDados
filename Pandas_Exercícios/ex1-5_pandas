@@ -1,0 +1,61 @@
+#Título: Exercícios 1-5 Pandas
+import pandas as pd
+import numpy as np
+
+# Criando as Series
+seriesAno1 = pd.Series({'Java': 16.25, 'C': 16.04, 'Python': 9.85})
+seriesAno2 = pd.Series({'C': 16.21, 'Python': 12.12, 'Java': 11.68})
+
+# Calculando as somas
+print("----------------------------------------Soma das porcentagens de cada ano--------------------------------")
+somaAno1 = seriesAno1.sum()
+somaAno2 = seriesAno2.sum()
+
+print("Porcentagem do ano 1 = {} %" .format(somaAno1))
+print("Porcentagem do ano 2 = {} %" .format (somaAno2))
+print("--------------------------------------------------------------------------------------------------------")
+
+#Apresentando Crescimento ou declíneo de cada linguagem
+print("-----------------------------Crescimento ou declínio de cada linguagem----------------------------------")
+#Para Java
+if seriesAno1['Java'] > seriesAno2['Java']:
+    print("Java teve um declínio de {} %".format(seriesAno1['Java'] - seriesAno2['Java']))
+else:
+    print("Java teve um crescimento de {} %".format(seriesAno2['Java'] - seriesAno1['Java']))
+
+#Para C
+if seriesAno1['C'] > seriesAno2['C']:
+    print("C teve um declínio de {} %".format(seriesAno1['C'] - seriesAno2['C']))
+else:
+    print("C teve um crescimento de {} %".format(seriesAno2['C'] - seriesAno1['C']))
+
+#Para Python
+if seriesAno1['Python'] > seriesAno2['Python']:
+    print("Python teve um declínio de {} %".format(seriesAno1['Python'] - seriesAno2['Python']))
+else:
+    print("Python teve um crescimento de {} %".format(seriesAno2['Python'] - seriesAno1['Python']))
+print("--------------------------------------------------------------------------------------------------------")
+#Apresentar linguagem com Crescimento
+print("----------------------------------------Linguagens com crescimento--------------------------------------")
+if seriesAno1['Java'] < seriesAno2['Java']:
+    print("Java teve um crescimento de {} %".format(seriesAno2['Java'] - seriesAno1['Java']))
+if seriesAno1['C'] < seriesAno2['C']:
+    print("C teve um crescimento de {} %".format(seriesAno2['C'] - seriesAno1['C']))
+if seriesAno1['Python'] < seriesAno2['Python']:
+    print("Python teve um crescimento de {} %".format(seriesAno2['Python'] - seriesAno1['Python']))
+print("--------------------------------------------------------------------------------------------------------")
+
+
+print("----------------------------------------Mais popular para o 4º ano-------------------------------")
+# Calculando as porcentagens para os próximos 2 anos
+seriesAno3 = seriesAno2 + (seriesAno2 - seriesAno1)
+seriesAno4 = seriesAno3 + (seriesAno3 - seriesAno2)
+
+# Determinando a linguagem mais popular no final do 4º ano
+mais_popular = seriesAno4.nlargest(1)
+
+print("A linguagem mais popular no final do 4º ano será:")
+print(mais_popular)
+print("--------------------------------------------------------------------------------------------------------")
+
+
